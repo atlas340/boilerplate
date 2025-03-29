@@ -1,7 +1,7 @@
 import 'package:mvvm_app/data/network/base_api_services.dart';
 import 'package:mvvm_app/data/network/network_api_services.dart';
 import 'package:mvvm_app/models/movies_model.dart';
-import 'package:mvvm_app/res/widgets/app_urls.dart';
+import 'package:mvvm_app/res/constants/api_constants.dart';
 
 class HomeRepository {
   final BaseApiServices _apiServices = NetworkApiServices();
@@ -9,7 +9,7 @@ class HomeRepository {
     try {
       print("first line fetchMoviesList function");
       dynamic response =
-          await _apiServices.getGetApiResponse(AppUrls.moviesListEndPoint);
+          await _apiServices.getGetApiResponse(ApiConstants.moviesListEndpoint);
       return response = MovieListModel.fromJson(response);
     } catch (e) {
       rethrow;

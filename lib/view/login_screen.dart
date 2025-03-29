@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_app/res/constants/color_constants.dart';
 import 'package:mvvm_app/res/widgets/round_button.dart';
+import 'package:mvvm_app/res/widgets/styled_text.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
 import 'package:mvvm_app/utils/utils.dart';
 import 'package:mvvm_app/viewModel/auth_viewmodel.dart';
@@ -27,7 +29,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const StyledText(
+            text: "Login", color: ColorConstants.textBlackColor),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -48,7 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email),
-                  label: const Text("Email"),
+                  label: const StyledText(
+                      text: "Email", color: ColorConstants.textBlackColor),
                   hintText: "shahzaneer.dev@gmail.com",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -86,7 +90,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               child: const Icon(Icons.visibility_off),
                             ),
-                      label: const Text("Password"),
+                      label: const StyledText(
+                        text: "Password",
+                        color: ColorConstants.textBlackColor,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -126,7 +133,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: () {
                   Navigator.pushNamed(context, RouteNames.signupScreen);
                 },
-                child: const Text("Don't have an account yet? Sign Up!"))
+                child: const StyledText(
+                  text: "Don't have an account yet? Sign Up!",
+                  color: ColorConstants.textBlackColor,
+                ))
           ],
         ),
       ),
@@ -142,8 +152,6 @@ class _LoginScreenState extends State<LoginScreen> {
     _passwordFocus.dispose();
   }
 }
-
-
 
 //! Recalling Providers
 // used for state Management (efficicent)

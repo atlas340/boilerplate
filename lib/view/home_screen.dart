@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_app/res/constants/color_constants.dart';
+import 'package:mvvm_app/res/widgets/styled_text.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
 import 'package:mvvm_app/utils/utils.dart';
 import 'package:mvvm_app/viewModel/home_view_model.dart';
@@ -29,7 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Screen"),
+        title: const StyledText(
+          text: "Home Screen",
+          color: ColorConstants.textBlackColor,
+          fontSize: 22,
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
         actions: [
@@ -43,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Ink(
-                child: const Text("Logout"),
+                child: const StyledText(
+                    text: "Logout", color: ColorConstants.textBlackColor),
               ),
             ),
           ),
@@ -65,8 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               case Status.error:
                 return Center(
-                  child: Text(
-                    value.moviesList.message.toString(),
+                  child: StyledText(
+                    text: value.moviesList.message.toString(),
+                    color: ColorConstants.textBlackColor,
                   ),
                 );
               case Status.completed:
@@ -75,11 +83,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return Card(
                         child: ListTile(
-                          title: Text(value.moviesList.data!.movies![index].title
-                              .toString()),
-                          subtitle: Text(value
-                              .moviesList.data!.movies![index].year
-                              .toString()),
+                          title: StyledText(
+                            text: value.moviesList.data!.movies![index].title
+                                .toString(),
+                            color: ColorConstants.textBlackColor,
+                          ),
+                          subtitle: StyledText(
+                              text: value.moviesList.data!.movies![index].year
+                                  .toString(),
+                              color: ColorConstants.textBlackColor),
                           leading: Image.network(
                             value.moviesList.data!.movies![index].posterurl
                                 .toString(),
@@ -96,10 +108,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
-                                Utils.averageRatings(value
-                                        .moviesList.data!.movies![index].ratings!)
+                              StyledText(
+                                text: Utils.averageRatings(value.moviesList
+                                        .data!.movies![index].ratings!)
                                     .toStringAsFixed(1),
+                                color: ColorConstants.textBlackColor,
                               ),
                               const Icon(
                                 Icons.star,
@@ -110,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     });
-      
+
               default:
                 return Container();
             }

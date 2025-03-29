@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:mvvm_app/res/constants/color_constants.dart";
+import "package:mvvm_app/res/widgets/styled_text.dart";
 import "package:mvvm_app/utils/routes/routes_names.dart";
 import "package:provider/provider.dart";
 
@@ -28,7 +30,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign up"),
+        title: const StyledText(
+          text: "Sign up",
+          color: ColorConstants.textBlackColor,
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -49,7 +54,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 },
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email),
-                  label: const Text("Email"),
+                  label: const StyledText(
+                      text: "Email", color: ColorConstants.textBlackColor),
                   hintText: "shahzaneer.dev@gmail.com",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -87,7 +93,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               },
                               child: const Icon(Icons.visibility_off),
                             ),
-                      label: const Text("Password"),
+                      label: const StyledText(
+                          text: "Password",
+                          color: ColorConstants.textBlackColor),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -130,7 +138,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 onTap: () {
                   Navigator.pushNamed(context, RouteNames.login);
                 },
-                child: const Text("Already have an account? Login Up!"))
+                child: const StyledText(
+                  text: "Already have an account? Login Up!",
+                  color: ColorConstants.textBlackColor,
+                ))
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_app/res/widgets/coloors.dart';
+import 'package:mvvm_app/res/constants/color_constants.dart';
+import 'package:mvvm_app/res/widgets/styled_text.dart';
 
 class RoundButton extends StatelessWidget {
   final String title;
@@ -20,15 +21,14 @@ class RoundButton extends StatelessWidget {
         width: 200,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: AppColors.buttonColor),
+            color: ColorConstants.buttonColor),
         child: loading
             ? const CircularProgressIndicator(
                 color: Colors.white,
               )
             : Center(
-                child: Text(
-                  title.toString(),
-                  style: const TextStyle(color: Colors.white),
+                child: StyledText(
+                  text: title.toString(),
                 ),
               ),
       ),

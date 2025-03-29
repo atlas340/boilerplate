@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_app/res/constants/color_constants.dart';
+import 'package:mvvm_app/res/widgets/styled_text.dart';
 import 'package:mvvm_app/viewModel/splash_service.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,12 +26,11 @@ class _SplashScreenState extends State<SplashScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-            child: Text(
-              "Splash Screen",
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.grey.shade700,
-                  fontWeight: FontWeight.bold),
+            child: const StyledText(
+              text: "Splash Screen",
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: ColorConstants.textBlackColor,
             ),
           )
         ],
